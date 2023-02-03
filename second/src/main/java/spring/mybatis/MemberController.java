@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.demo.MyWebConfig;
+
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -91,7 +93,8 @@ public class MemberController {
 	// dto image 변수에 c:upload 저장파일명 세팅
 	public ModelAndView memberinsert(MemberDTO dto) throws IOException {
 		// 이렇게 되면 dto.set이 알아서 된다 ???????
-		String savePath = "c:/upload/";
+		String savePath = MyWebConfig.savePath;
+//		String savePath = "c:/upload/";
 		MultipartFile imagefile = dto.getImagefile();
 		
 		String filename1 = imagefile.getOriginalFilename();
